@@ -1,11 +1,10 @@
-package br.com.dio.app.repositories.data
+package br.com.dio.app.repositories.data.di
 
 import android.util.Log
-import br.com.dio.app.repositories.data.repositories.RepoRepositories
-import br.com.dio.app.repositories.data.repositories.RepoRepositoriesImpl
+import br.com.dio.app.repositories.data.repositories.RepoRepository
+import br.com.dio.app.repositories.data.repositories.RepoRepositoryImpl
 import br.com.dio.app.repositories.data.services.GitHubService
 import com.google.gson.GsonBuilder
-import get
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.core.context.loadKoinModules
@@ -53,7 +52,7 @@ object DataModule {
     private fun repositoriesModule(): Module {
         return module {
             single {
-                single<RepoRepositories> { RepoRepositoriesImpl(get()) }
+                single<RepoRepository> { RepoRepositoryImpl(get()) }
             }
         }
     }
