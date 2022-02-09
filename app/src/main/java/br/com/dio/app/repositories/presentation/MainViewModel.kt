@@ -18,8 +18,7 @@ class MainViewModel(
     private val _repos = MutableLiveData<State>()
     val repos: LiveData<State> = _repos
 
-
-    fun getReposList(user: String) {
+    fun getRepoList(user: String) {
         viewModelScope.launch {
             listUserRepositoriesUseCase(user)
                 .onStart {
@@ -31,7 +30,6 @@ class MainViewModel(
                 .collect {
                     _repos.postValue(State.Success(it))
                 }
-
         }
     }
 
@@ -40,4 +38,5 @@ class MainViewModel(
         data class Success(val list: List<Repo>) : State()
         data class Error(val error: Throwable) : State()
     }
+
 }

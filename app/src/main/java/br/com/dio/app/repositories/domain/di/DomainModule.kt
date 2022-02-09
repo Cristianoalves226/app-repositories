@@ -16,4 +16,5 @@ object DomainModule {
             factory { ListUserRepositoriesUseCase(get()) }
         }
     }
+
 }

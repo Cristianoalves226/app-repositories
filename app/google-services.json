@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "990936506193",
+    "project_id": "app-divulga-github",
+    "storage_bucket": "app-divulga-github.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:990936506193:android:d2e2cc3b0ddadb8b797d70",
+        "android_client_info": {
+          "package_name": "br.com.dio.app.repositories"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "990936506193-q9kibe49gk68lu7sr6uj2n643nrnv37p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQtuO_nzuddGgy7Id2J8_lVSaOfxvu93c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "990936506193-q9kibe49gk68lu7sr6uj2n643nrnv37p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

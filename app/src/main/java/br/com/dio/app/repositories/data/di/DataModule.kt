@@ -16,7 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object DataModule {
 
-    const val OK_HTTP = "okHttp"
+    private const val OK_HTTP = "OkHttp"
 
     fun load() {
         loadKoinModules(networkModules() + repositoriesModule())
@@ -25,12 +25,11 @@ object DataModule {
     private fun networkModules(): Module {
         return module {
             single {
-
                 val interceptor = HttpLoggingInterceptor {
                     Log.e(OK_HTTP, it)
                 }
-
                 interceptor.level = HttpLoggingInterceptor.Level.BODY
+
                 OkHttpClient.Builder()
                     .addInterceptor(interceptor)
                     .build()
@@ -41,26 +40,18 @@ object DataModule {
             }
 
             single {
-                createService<GitHubService>(
-                    get(), get()
-                )
+                createService<GitHubService>(get(), get())
             }
-
         }
     }
 
     private fun repositoriesModule(): Module {
         return module {
-            single {
-                single<RepoRepository> { RepoRepositoryImpl(get()) }
-            }
+            single<RepoRepository> { RepoRepositoryImpl(get()) }
         }
     }
 
-    private inline fun <reified T> createService(
-        client: OkHttpClient,
-        factory: GsonConverterFactory
-    ): T {
+    private inline fun <reified T> createService(client: OkHttpClient, factory: GsonConverterFactory): T {
         return Retrofit.Builder()
             .baseUrl("https://api.github.com/")
             .client(client)
